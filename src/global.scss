@@ -1,0 +1,196 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+.d-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+ion-content {
+    --background: #f2f2f2;
+}
+.btn {
+    padding: 0.5rem 2rem !important;
+}
+section.block {
+    padding-top: unset;
+}
+.title {
+    padding: 15px;
+    transition: all 0.4s ease-in-out;
+    .ttl {
+        margin-bottom: 5px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid;
+        width: 100%;
+        transition: all 0.4s ease-in-out;
+        h1 {
+            margin: unset;
+            font-size: 20px;
+            transition: all 0.4s ease-in-out;
+        }
+        .search {
+            .ic {
+                background-color: #fff;
+                padding: 5px 10px;
+                color: #9e9c9c;
+                border-radius: 50%;
+                box-shadow: 0px 0px 7px -3px;
+                transition: all 1s ease-in-out;
+            }
+            .ic:hover {
+                cursor: pointer;
+            }
+            .in {
+                width: 100%;
+                position: relative;
+                transition: all 1s ease-in-out;
+                input {
+                    padding: 5px 65px 5px 15px;
+                    transition: all 1s ease-in-out;
+                    box-shadow: unset;
+                    border: unset;
+                    background: unset;
+                }
+                .clr {
+                    position: absolute;
+                    top: 15%;
+                    right: 4%;
+                    color: #9c9c9c;
+                    i {
+                        padding-right: 5px;
+                    }
+                }
+                .clr:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+.nl {
+    .item {
+        .wrapper {
+            .image {
+                .image-wrapper {
+                    height: inherit;
+                    width: inherit;
+                    background-color: #ccc;
+                }
+            }
+            .meta {
+                figure {
+                    width: 100%;
+                    p {
+                        height: 15px;
+                        background-color: #ccc;
+                    }
+                    p.n {
+                        width: 100%;
+                    }
+                    p.m {
+                        width: 70%;
+                    }
+                }
+            }
+        }
+    }
+}
+.show {
+    display: block;
+}
+.hide {
+    display: none;
+}
+.w10 {
+    width: 10%;
+}
+.w15 {
+    width: 15%;
+}
+.w20 {
+    width: 20%;
+}
+.w25 {
+    width: 25%;
+}
+.w30 {
+    width: 30%;
+}
+.w35 {
+    width: 35%;
+}
+.w40 {
+    width: 40%;
+}
+.w45 {
+    width: 45%;
+}
+.w50 {
+    width: 50%;
+}
+.w55 {
+    width: 55%;
+}
+.w60 {
+    width: 60%;
+}
+.w65 {
+    width: 65%;
+}
+.w70 {
+    width: 70%;
+}
+.w75 {
+    width: 75%;
+}
+.w80 {
+    width: 80%;
+}
+.w85 {
+    width: 85%;
+}
+.w90 {
+    width: 90%;
+}
+.w95 {
+    width: 95%;
+}
+.w100 {
+    width: 100%;
+}
+.mus {
+    margin: unset;
+}
+.padding-separator {
+    width: 100%;
+    height: 35px;
+}
+.elps {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

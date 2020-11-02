@@ -1,0 +1,134 @@
+.item {
+  max-height: 550px;
+  float: none;
+}
+
+.p15 {
+  padding: 15px;
+}
+
+.items:not(.selectize-input) .item .image {
+  height: 10rem !important;
+}
+
+.items:not(.selectize-input) .item h3 {
+  bottom: 1rem !important;
+}
+
+.items:not(.selectize-input) .item .meta figure {
+  opacity: unset;
+  margin: unset !important;
+  font-size: 15px;
+}
+
+.items:not(.selectize-input) .item.call-to-action {
+  text-align: center;
+  height: 16rem;
+  display: block;
+}
+
+.hero-wrapper {
+  position: relative;
+  .img-btn {
+    position: absolute;
+    right: 7%;
+    .btn {
+      padding: 0.5rem 1rem;
+      font-size: 12px;
+      position: relative;
+      border-radius: 50%;
+    }
+    input[type="file"] {
+      width: 34px;
+      height: 30px;
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      left: 0;
+      border-radius: 50%;
+    }
+    input[type="file"]:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+/*************************************************/
+/************* Header ****************************/
+/*************************************************/
+ion-header {
+  transition: top 0.3s;
+}
+
+.hbg {
+  z-index: unset;
+  // background: url("src/assets/img/hero-background-image-01.jpg") no-repeat;
+  background-size: cover;
+  background-position-y: 50%;
+  background-repeat: no-repeat;
+}
+
+.page-title h1 {
+  color: white;
+}
+
+.opacity-70 {
+  opacity: 0.7;
+}
+
+.bk-btn {
+  padding-right: 8px;
+  font-size: 16px;
+}
+.bk-btn:hover {
+  cursor: pointer;
+}
+.hero .main-navigation .navbar {
+  // border-bottom: 0.1rem solid white;
+  padding: 1.5rem 0 3rem 0;
+  border-bottom: unset;
+  justify-content: unset;
+  ion-buttons {
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 6px -3px;
+  }
+}
+nav .navbar-nav .nav-link.active {
+  color: white;
+}
+nav .navbar-nav .nav-link {
+  color: white;
+}
+nav .navbar-nav .nav-link::after {
+  display: none !important;
+}
+
+.ad {
+  background: white;
+  filter: drop-shadow(2px 4px 6px white);
+}
+
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+
+.fadein,
+.fadeout {
+  opacity: 0;
+  margin-top: -225px;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+.fadein {
+  opacity: 1;
+  margin-top: 0;
+}
+/*************************************************/
+/************* Header Ends ***********************/
+/*************************************************/

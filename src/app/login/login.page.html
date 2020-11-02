@@ -1,0 +1,121 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <img src="assets/img/logo.png" alt="">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <section class="content">
+    <section class="block">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8">
+            <div class="show-msg text-center" *ngIf="message!=''">{{message}}</div>
+            <form class="form clearfix p10" [formGroup]="loginFormGrp" validate>
+              <div class="form-group" *ngIf="!mbrLogin && !setPass">
+                <label for="phone" class="col-form-label required">Phone Number (Owner)</label>
+                <input formControlName="phone" type="text" (keypress)="numberOnly($event)" class="form-control"
+                  id="phone" placeholder="Phone Number..." required maxlength="10">
+              </div>
+              <div class="form-group" *ngIf="mbrLogin && !setPass">
+                <label for="username" class="col-form-label required">User Name</label>
+                <input formControlName="username" type="text" class="form-control" id="username"
+                  placeholder="User Name..." required>
+              </div>
+              <!--end form-group-->
+              <div class="form-group" *ngIf="showEml && !setPass">
+                <label for="email" class="col-form-label required">Email</label>
+                <input formControlName="email" type="email" class="form-control" id="email"
+                  [(ngModel)]="logindata.email" placeholder="Your Email..." required>
+              </div>
+              <!--end form-group-->
+              <div class="form-group" *ngIf="isOTPGenerated && !mbrLogin && !setPass">
+                <label for="otp" class="col-form-label required">OTP</label>
+                <input formControlName="otp" type="text" (keypress)="numberOnly($event)" class="form-control" id="otp"
+                  placeholder="Enter OTP" required maxlength="6">
+              </div>
+              <div class="form-group" *ngIf="isOTPGenerated && mbrLogin && isFstLog && !setPass">
+                <label for="otp" class="col-form-label required">OTP</label>
+                <input formControlName="otp" type="text" (keypress)="numberOnly($event)" class="form-control" id="otp"
+                  placeholder="Enter OTP" required maxlength="6">
+              </div>
+              <div class="form-group" *ngIf="mbrLogin && !isFstLog && isChecked && !setPass">
+                <label for="pass" class="col-form-label required">Password</label>
+                <input formControlName="pass" type="password" class="form-control" id="pass"
+                  placeholder="Enter Password" required>
+              </div>
+              <div class="form-group" *ngIf="mbrLogin && isFstLog && setPass">
+                <label for="pass" class="col-form-label required">Password</label><br>
+                <small>Include, 1 lowercase, 1 UPPERCASE, 1 number and 1 special character.</small><br>
+                <small>Set Password Between 8 and 20 characters</small>
+                <input formControlName="pass" type="password" class="form-control" id="pass"
+                  placeholder="Enter Password" required>
+              </div>
+              <div class="form-group" *ngIf="mbrLogin && isFstLog && setPass">
+                <label for="cpass" class="col-form-label required">Confirm Password</label>
+                <input formControlName="cpass" type="password" class="form-control" id="cpass"
+                  placeholder="Confirm Password" required>
+              </div>
+              <div class="form-group" *ngIf="isOTPGenerated && !setPass">
+                <p class="cp" (click)="resendOTP()">Resend Code</p>
+              </div>
+              <!--end form-group-->
+              <div class="d-flex justify-content-between align-items-baseline text-right">
+                <!-- <label>
+                        <input type="checkbox" name="newsletter" value="1">
+                          Receive Newsletter
+                     </label> -->
+                <button *ngIf="!isOTPGenerated && !isChecked && !mbrLogin && !setPass" type="submit"
+                  class="btn btn-primary ml-auto" [disabled]="!loginFormGrp.valid" (click)="generateOTP()">Next</button>
+                <button *ngIf="!isOTPGenerated && mbrLogin && !setPass" type="submit" class="btn btn-primary ml-auto"
+                  [disabled]="!loginFormGrp.valid" (click)="checkUser()">Next</button>
+                <button *ngIf="isOTPGenerated && !setPass" type="submit" class="btn btn-primary ml-auto"
+                  [disabled]="!loginFormGrp.valid" (click)="verify()">Login</button>
+                <button *ngIf="mbrLogin && !isFstLog && isChecked && !setPass" type="submit"
+                  class="btn btn-primary ml-auto" [disabled]="!loginFormGrp.valid" (click)="verify()">Login</button>
+                <button *ngIf="mbrLogin && isFstLog && setPass" type="submit" class="btn btn-primary ml-auto"
+                  [disabled]="!loginFormGrp.valid" (click)="setPassword()">Set Password</button>
+              </div>
+            </form>
+
+            <div class="text-center mpd">
+              <p class="link" *ngIf="!mbrLogin && !setPass" (click)="memberLogin()">
+                <span>Login as a Member instead</span>
+              </p>
+              <p class="link" *ngIf="mbrLogin && !setPass" (click)="ownerLogin()">
+                <span> Login as an Owner instead</span>
+              </p>
+            </div>
+            <hr>
+            <!-- <div class="other-logins mpd">
+              <a class="_links fbk" href="javascript:void(0);">
+                <i class="fa fa-facebook"></i>
+              </a>
+              <a class="_links gle" href="javascript:void(0);">
+                <i class="fa fa-google"></i>
+              </a>
+              <a class="_links phn" href="javascript:void(0);" (click)="phoneLogin()">
+                <i class="fa fa-phone"></i>
+              </a>
+              <a class="_links eml" href="javascript:void(0);" (click)="mailLogin()">
+                <i class="fa fa-envelope-o"></i>
+              </a>
+            </div> -->
+            <div class="text-center">
+              <p>
+                By clicking "Register" button, you agree with our
+                <span class="link">Terms & Conditions.</span>
+              </p>
+            </div>
+          </div>
+          <!--end col-md-6-->
+        </div>
+        <!--end row-->
+      </div>
+      <!--end container-->
+    </section>
+    <!--end block-->
+  </section>
+</ion-content>

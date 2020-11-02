@@ -1,0 +1,48 @@
+<header></header>
+
+<ion-content [scrollEvents]="true" (ionScroll)="scrollEv($event)">
+    <section class="content">
+        <section class="block">
+            <div class="container">
+                <div class="row items p15">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-12" *ngFor="let w of widgets">
+                        <div class="item">
+                            <div class="wrapper">
+                                <div class="image">
+                                    <a href="javascript:void(0);" class="image-wrapper " (click)="navWidget(w)">
+                                        <img [src]="rootPath + w.widgetImg" [alt]="w.widgetName" [title]="w.widgetName">
+                                    </a>
+                                    <div class="notifcn" *ngIf="w.widgetSequ == 9 && notifyInfo.length > 0">
+                                        <span>{{notifyInfo.length}}</span>
+                                    </div>
+                                </div>
+                                <!--end image-->
+                                <div class="meta">
+                                    <figure>
+                                        <div class="d-flex">
+                                            <a href="javascript:void(0);" (click)="navWidget(w)">
+                                                {{w.widgetName}}
+                                            </a>
+                                            <i class="fa fa-info ml-auto _tooltip">
+                                                <span class="_tooltiptext">{{w.widgetTooltiptext}}</span>
+                                            </i>
+                                        </div>
+                                        <p>
+                                            {{w.widgetDesc}}
+                                        </p>
+                                    </figure>
+                                </div>
+                                <!--end meta-->
+                            </div>
+                        </div>
+                        <!--end item-->
+                    </div>
+                </div>
+
+                <div class="center">
+                    <a href="javascript:void(0);" class="btn btn-primary btn-framed btn-rounded">Load More</a>
+                </div>
+            </div>
+        </section>
+    </section>
+</ion-content>

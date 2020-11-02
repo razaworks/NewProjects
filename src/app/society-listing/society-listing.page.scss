@@ -1,0 +1,39 @@
+.d-flex {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.item {
+    max-height: 550px;
+    float: none;
+}
+
+.p15 {
+    padding: 15px;
+}
+
+.items:not(.selectize-input) .item .image {
+    height: 16rem !important;
+}
+
+.items:not(.selectize-input) .item h3 {
+    bottom: 1rem !important;
+}
+
+.items:not(.selectize-input) .item .meta {
+    white-space: unset;
+    margin-top: unset;
+}
+
+.items:not(.selectize-input) .item .meta figure {
+    opacity: unset;
+    margin: unset !important;
+    font-size: 15px;
+}
+
+.items:not(.selectize-input) .item .meta::before {
+    content: unset;
+    display: none;
+}
+
+

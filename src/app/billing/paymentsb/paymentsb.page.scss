@@ -1,0 +1,120 @@
+.add-btn {
+    span {
+        padding: 6px 9px;
+        background: #ccc;
+        border-radius: 50%;
+        color: #ff0000;
+        width: 25px;
+        height: 25px;
+    }
+    span:hover {
+        cursor: pointer;
+    }
+}
+
+.payments {
+    transition: all 0.5s;
+    border-radius: 0.3rem;
+    .item {
+        .meta.ttl {
+            padding: 7px 11px;
+            font-size: 14px;
+            font-weight: 600;
+            background-color: #ff0000;
+            color: #fff;
+        }
+        .meta {
+            padding: unset;
+            .title {
+                padding: 10px 15px 10px 15px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            }
+            .contents {
+                padding: 10px 15px 10px 15px;
+                .bdpb {
+                    border-bottom: 1px dashed #ccc;
+                    padding-bottom: 4px;
+                }
+                .bdp {
+                    border-bottom: 1px dashed #ccc;
+                    padding: 4px 0;
+                }
+                .pt {
+                    padding-top: 4px;
+                }
+            }
+            p {
+                margin: unset;
+                opacity: unset;
+            }
+        }
+        .imgvwr {
+            padding: 15px 12px;
+            text-align: center;
+            div {
+                margin-top: 7px;
+                font-size: 10px;
+            }
+            span {
+                width: 15px;
+                height: 15px;
+                background: #ecebeb;
+                border-radius: 50%;
+                padding: 9px 11px;
+                color: red;
+            }
+            span:hover {
+                cursor: pointer;
+            }
+        }
+    }
+    .act {
+        margin: 15px 0;
+        text-align: center;
+        .btn {
+            span {
+                padding-right: 5px;
+            }
+            padding: 0.5rem 2rem;
+            font-size: 15px;
+        }
+    }
+}
+
+.plist {
+    .item.cp:hover {
+        cursor: pointer;
+    }
+    .item {
+        .wrapper {
+            .meta {
+                figure {
+                    a.skltn {
+                        background-color: #ccc;
+                        height: 12px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.items:not(.selectize-input) .item .meta {
+    white-space: unset;
+    margin-top: unset;
+}
+
+.items:not(.selectize-input) .item .meta figure {
+    opacity: unset;
+    margin: unset !important;
+    font-size: 12px;
+    width: 100%;
+}
+
+.items:not(.selectize-input) .item .meta::before {
+    content: unset;
+    display: none;
+}
+.items:not(.selectize-input) .item .image {
+    height: auto;
+}

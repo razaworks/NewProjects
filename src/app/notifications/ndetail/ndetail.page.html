@@ -1,0 +1,72 @@
+<header></header>
+
+<ion-content>
+  <section class="content">
+    <section class="block">
+      <div class="container">
+        <div class="row title">
+          <div class="ttl d-flex align-items-center">
+            <h1>Type {{type}}</h1>
+          </div>
+        </div>
+        <div class="row items">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12" *ngIf="isLoaded">
+            <div class="item" *ngFor="let n of notifications">
+              <div class="wrapper text-center">
+                <div class="meta">
+                  <figure>
+                    <a href="javascript:void(0);" class="d-flex w100">
+                      {{n.notifyContent}}
+                    </a>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12" *ngIf="!isLoaded">
+            <div class="item">
+              <div class="wrapper text-center">
+                <div class="meta">
+                  <figure>
+                    <a href="javascript:void(0);" (click)="navBills()" class="d-flex w100 skltn">
+                    </a>
+                  </figure>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="wrapper text-center">
+                <div class="meta">
+                  <figure>
+                    <a href="javascript:void(0);" (click)="navBills()" class="d-flex w100 skltn">
+                    </a>
+                  </figure>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="wrapper text-center">
+                <div class="meta">
+                  <figure>
+                    <a href="javascript:void(0);" (click)="navBills()" class="d-flex w100 skltn">
+                    </a>
+                  </figure>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="wrapper text-center">
+                <div class="meta">
+                  <figure>
+                    <a href="javascript:void(0);" (click)="navBills()" class="d-flex w100 skltn">
+                    </a>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+</ion-content>

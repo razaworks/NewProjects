@@ -1,0 +1,183 @@
+<header></header>
+
+<ion-content>
+  <section class="content">
+    <section class="block">
+      <div class="container">
+        <div class="row title">
+          <div class="ttl d-flex align-items-center">
+            <h1>Payments</h1>
+          </div>
+        </div>
+        <div class="row" *ngIf="!showList">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12 m20" *ngIf="isLoaded">
+            <div class="statements items">
+              <div class="item" *ngFor="let s of statements">
+                <div class="wrapper">
+                  <div class="meta ttl" *ngIf="s.flatNo !== '' && s.fullName !== ''">
+                    <div>
+                      <span>{{s.flatNo}} - {{s.fullName}}</span>
+                    </div>
+                  </div>
+                  <div class="meta">
+                    <figure>
+                      <div class="w100 title">
+                        <div>Date: {{s.transDate | date:'mediumDate'}}</div>
+                        <div class="elps" *ngIf="s.transId != '00000000-0000-0000-0000-000000000000'">Trans ID: <br>
+                          {{s.transId}}</div>
+                      </div>
+                      <div class="contents w100">
+                        <div class="d-flex">
+                          Mode of Payment:
+                          <div class="ml-auto">{{s.paymentMethod}}</div>
+                        </div>
+                        <div class="d-flex">Status:
+                          <div *ngIf="!s.status" class="ml-auto text-danger"> Verification Pending </div>
+                          <div *ngIf="s.status" class="ml-auto text-success"> Verified </div>
+                        </div>
+                        <div class="d-flex bdpb">
+                          Current Bal:
+                          <div class="ml-auto">{{s.currentBalance}}</div>
+                        </div>
+                        <div class="d-flex bdp">
+                          Trans Amt:
+                          <div class="ml-auto">{{s.transAmount}}</div>
+                        </div>
+                        <div class="d-flex pt">
+                          Prev Bal:
+                          <div class="ml-auto">{{getPrevBal(s.currentBalance, s.transAmount)}}</div>
+                        </div>
+                      </div>
+                    </figure>
+                  </div>
+                  <div class="imgvwr d-flex" *ngIf="!s.status || (s.imagePath != '' && s.imagePath != null)">
+                    <div class="remark w100" *ngIf="getRemark">
+                      <div class="form-group">
+                        <input type="text" name="remarks" id="remarks" class="form-control">
+                      </div>
+                      <div class="act d-flex">
+                        <div class="w50 pr5">
+                          <button class="btn btn-primary w100 btn-o" (click)="verify(0, 2)"><span>Reject</span></button>
+                        </div>
+                        <div class="w50 pl5">
+                          <button class="btn btn-primary w100" (click)="verify(1, s)"><span>Accept</span></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ml-auto text-center sect" *ngIf="!getRemark">
+                      <div class="_sec" *ngIf="!s.status" (click)="toggleRemark()">
+                        <div class="_ic"><i class="fa fa-check"></i></div>
+                        <div class="_cap">Verify</div>
+                      </div>
+                      <div class="_sec" *ngIf="s.imagePath != '' && s.imagePath != null"
+                        (click)="viewDocument(s.imagePath)">
+                        <div class="_ic"><i class="fa fa-file-o"></i></div>
+                        <div class="_cap">Document</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12 m20" *ngIf="!isLoaded">
+            <div class="statements items">
+              <div class="item skltn">
+                <div class="wrapper">
+                  <div class="meta ttl">
+                    <div>
+                    </div>
+                  </div>
+                  <div class="meta">
+                    <figure>
+                      <div class="w100 title">
+                        <div></div>
+                        <div class="elps"></div>
+                      </div>
+                      <div class="contents w100">
+                        <div class="d-flex"></div>
+                        <div class="d-flex"></div>
+                        <div class="d-flex bdpb"></div>
+                        <div class="d-flex bdp"></div>
+                        <div class="d-flex pt"></div>
+                      </div>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+              <div class="item skltn">
+                <div class="wrapper">
+                  <div class="meta ttl">
+                    <div>
+                    </div>
+                  </div>
+                  <div class="meta">
+                    <figure>
+                      <div class="w100 title">
+                        <div></div>
+                        <div class="elps"></div>
+                      </div>
+                      <div class="contents w100">
+                        <div class="d-flex"></div>
+                        <div class="d-flex"></div>
+                        <div class="d-flex bdpb"></div>
+                        <div class="d-flex bdp"></div>
+                        <div class="d-flex pt"></div>
+                      </div>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+              <div class="item skltn">
+                <div class="wrapper">
+                  <div class="meta ttl">
+                    <div>
+                    </div>
+                  </div>
+                  <div class="meta">
+                    <figure>
+                      <div class="w100 title">
+                        <div></div>
+                        <div class="elps"></div>
+                      </div>
+                      <div class="contents w100">
+                        <div class="d-flex"></div>
+                        <div class="d-flex"></div>
+                        <div class="d-flex bdpb"></div>
+                        <div class="d-flex bdp"></div>
+                        <div class="d-flex pt"></div>
+                      </div>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+              <div class="item skltn">
+                <div class="wrapper">
+                  <div class="meta ttl">
+                    <div>
+                    </div>
+                  </div>
+                  <div class="meta">
+                    <figure>
+                      <div class="w100 title">
+                        <div></div>
+                        <div class="elps"></div>
+                      </div>
+                      <div class="contents w100">
+                        <div class="d-flex"></div>
+                        <div class="d-flex"></div>
+                        <div class="d-flex bdpb"></div>
+                        <div class="d-flex bdp"></div>
+                        <div class="d-flex pt"></div>
+                      </div>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+</ion-content>

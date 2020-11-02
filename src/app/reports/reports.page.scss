@@ -1,0 +1,60 @@
+.d-flex {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.item {
+    max-height: 550px;
+    float: none;
+    .wrapper {
+        .meta:hover {
+            cursor: pointer;
+        }
+        .sub-menu {
+            .text-center {
+                padding: 0.6rem 1rem;
+                border-bottom: 1px solid rgba(0,0,0,0.1);
+            }
+            .text-center:last-child {
+                border-bottom: unset;
+            }
+            .text-center:hover {
+                background-color: #ccc;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.p15 {
+    padding: 15px;
+}
+
+.items:not(.selectize-input) .item .image {
+    height: 16rem !important;
+}
+
+.items:not(.selectize-input) .item h3 {
+    bottom: 1rem !important;
+}
+
+.items:not(.selectize-input) .item .meta {
+    white-space: unset;
+    margin-top: unset;
+    padding: 1rem 1.8rem;
+}
+
+.items:not(.selectize-input) .item .meta figure {
+    opacity: unset;
+    margin: unset !important;
+    font-size: 15px;
+    width: 100%;
+    p {
+        margin: unset;
+    }
+}
+
+.items:not(.selectize-input) .item .meta::before {
+    content: unset;
+    display: none;
+}
