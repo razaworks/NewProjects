@@ -1,0 +1,136 @@
+<header></header>
+
+<ion-content>
+  <section class="content">
+    <section class="block">
+      <div class="container">
+        <div class="row title">
+          <div class="ttl d-flex align-items-center">
+            <h1 [class.show]="!showSearch" [class.hide]="showSearch">Notices</h1>
+            <div class="search ml-auto" [class.w100]="showSearch">
+              <div class="ic" [class.show]="!showSearch" [class.hide]="showSearch" (click)="toggleSearch()">
+                <span><i class="fa fa-search"></i></span>
+              </div>
+              <div class="in" [class.show]="showSearch" [class.hide]="!showSearch">
+                <input type="text" placeholder="search..." class="form-control" name="search" [(ngModel)]="filter">
+                <span class="clr" (click)="toggleSearch()">
+                  <i class="fa fa-times"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row items p15" *ngIf="notices.length > 0">
+          <div class="col-lg-3 col-md-3 col-sm-3 col-12">
+            <a href="javascript:void(0);" class="item add call-to-action" (click)="navAddNotice()">
+              <div class="wrapper">
+                <div class="title">
+                  <i class="fa fa-plus-square-o"></i>
+                  Add Notice
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-3 col-12"
+            *ngFor="let n of notices | filter: filter | paginate: { itemsPerPage: 10, currentPage: p }; let i = index">
+            <div class="item">
+              <div class="wrapper">
+                <div class="image" *ngIf="n.noticeImg !== '' && n.noticeImg !== null">
+                  <a href="javascript:void(0);" class="image-wrapper ">
+                    <img src="{{rootPath + n.noticeImg}}" alt="{{n.noticeTitle}}" title="{{n.noticeTitle}}">
+                  </a>
+                </div>
+                <!--end image-->
+                <div class="meta">
+                  <figure>
+                    <div class="d-flex">
+                      <a href="javascript:void(0);">
+                        {{n.noticeTitle}}
+                      </a>
+                    </div>
+                    <p>
+                      {{n.noticeDesc}}
+                    </p>
+                  </figure>
+                </div>
+                <!--end meta-->
+                <div class="edit">
+                  <div class="w50 edt" (click)="navEditNotice(n)">
+                    <span>Edit</span>
+                  </div>
+                  <div class="w50 del" (click)="delNotice(n)">
+                    <span>Delete</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--end item-->
+          </div>
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+        <div class="row items p15 nl" *ngIf="notices.length == 0">
+          <div class="col-lg-3 col-md-3 col-sm-3 col-12">
+            <div class="item">
+              <div class="wrapper">
+                <div class="image">
+                  <a href="javascript:void(0);" class="image-wrapper ">
+                  </a>
+                </div>
+                <!--end image-->
+                <div class="meta">
+                  <figure>
+                    <div class="d-flex">
+                      <p class="n"></p>
+                    </div>
+                    <p class="m"></p>
+                  </figure>
+                </div>
+                <!--end meta-->
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-3 col-12">
+            <div class="item">
+              <div class="wrapper">
+                <div class="image">
+                  <a href="javascript:void(0);" class="image-wrapper ">
+                  </a>
+                </div>
+                <!--end image-->
+                <div class="meta">
+                  <figure>
+                    <div class="d-flex">
+                      <p class="n"></p>
+                    </div>
+                    <p class="m"></p>
+                  </figure>
+                </div>
+                <!--end meta-->
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-3 col-12">
+            <div class="item">
+              <div class="wrapper">
+                <div class="image">
+                  <a href="javascript:void(0);" class="image-wrapper ">
+                  </a>
+                </div>
+                <!--end image-->
+                <div class="meta">
+                  <figure>
+                    <div class="d-flex">
+                      <p class="n"></p>
+                    </div>
+                    <p class="m"></p>
+                  </figure>
+                </div>
+                <!--end meta-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+</ion-content>

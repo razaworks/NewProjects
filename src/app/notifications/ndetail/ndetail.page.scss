@@ -1,0 +1,58 @@
+.p15 {
+    padding: 15px;
+}
+
+.items {
+    .item {
+        .wrapper {
+            .meta {
+                figure {
+                    a.skltn {
+                        background-color: #ccc;
+                        height: 12px;
+                    }
+                }
+            }
+        }
+    }
+    .act {
+        margin: 15px 0;
+        text-align: center;
+        .btn {
+            span {
+                padding-right: 5px;
+            }
+            padding: 0.5rem 2rem;
+            font-size: 15px;
+        }
+    }
+}
+
+.items:not(.selectize-input) .item .image {
+    height: 16rem !important;
+}
+
+.items:not(.selectize-input) .item h3 {
+    bottom: 1rem !important;
+}
+
+.items:not(.selectize-input) .item .meta {
+    white-space: unset;
+    margin-top: unset;
+}
+
+.items:not(.selectize-input) .item .meta figure {
+    opacity: unset;
+    margin: unset !important;
+    // font-size: 15px;
+    width: 100%;
+}
+
+.items:not(.selectize-input) .item .meta::before {
+    content: unset;
+    display: none;
+}
+
+.items:not(.selectize-input) .item .image {
+    height: auto;
+}

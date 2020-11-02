@@ -1,0 +1,18 @@
+export const Index = {
+    "widgets": [
+        {widgetSequ: 1, widgetName: "Members", widgetDesc: "A Short Description Describing this very card, Members, telling what it is and what it could be!", widgetImg: "assets/img/image-01.jpg", widgetwidgetTooltiptext: "See all the Members"},
+        {widgetSequ: 2, widgetName: "Notices", widgetDesc: "A Short Description Describing this very card, Notices, telling what it is and what it could be!", widgetImg: "assets/img/image-02.jpg", widgetTooltiptext: "Check all Notices"},
+        {widgetSequ: 3, widgetName: "Events", widgetDesc: "A Short Description Describing this very card, Events, telling what it is and what it could be!", widgetImg: "assets/img/image-03.jpg", widgetTooltiptext: "Upcoming Events"},
+        {widgetSequ: 4, widgetName: "Gallery", widgetDesc: "A Short Description Describing this very card, Gallery, telling what it is and what it could be!", widgetImg: "assets/img/image-04.jpg", widgetTooltiptext: "See nice pictures"},
+        {widgetSequ: 5, widgetName: "Reports", widgetDesc: "A Short Description Describing this very card, Reports, telling what it is and what it could be!", widgetImg: "assets/img/image-01.jpg", widgetTooltiptext: "Check the reports"},
+        {widgetSequ: 6, widgetName: "HelpDesk", widgetDesc: "A Short Description Describing this very card, HelpDesk, telling what it is and what it could be!", widgetImg: "assets/img/image-02.jpg", widgetTooltiptext: "Need some help?"},
+        {widgetSequ: 7, widgetName: "Contact Support", widgetDesc: "A Short Description Describing this very card, Contact Support, telling what it is and what it could be!", widgetImg: "assets/img/image-03.jpg", widgetTooltiptext: "Contact Support"},
+        {widgetSequ: 8, widgetName: "Billing", widgetDesc: "A Short Description Describing this very card, Billing, telling what it is and what it could be!", widgetImg: "assets/img/image-04.jpg", widgetTooltiptext: "See your Billing"},
+        {widgetSequ: 9, widgetName: "Notifications", widgetDesc: "A Short Description Describing this very card, Notifications, telling what it is and what it could be!", widgetImg: "assets/img/image-01.jpg", widgetTooltiptext: "New Notifications"},
+        {widgetSequ: 10, widgetName: "Forums", widgetDesc: "A Short Description Describing this very card, Forums, telling what it is and what it could be!", widgetImg: "assets/img/image-02.jpg", widgetTooltiptext: "Discussion Rooms"},
+        {widgetSequ: 11, widgetName: "Visitor Management", widgetDesc: "A Short Description Describing this very card, Visitor Management, telling what it is and what it could be!", widgetImg: "assets/img/image-03.jpg", widgetTooltiptext: "See who visited whom"},
+        {widgetSequ: 12, widgetName: "Daily Staff Management", widgetDesc: "A Short Description Describing this very card, Daily Staff Management, telling what it is and what it could be!", widgetImg: "assets/img/image-04.jpg", widgetTooltiptext: "Keep an eye on your staff"},
+        {widgetSequ: 13, widgetName: "Child Security", widgetDesc: "A Short Description Describing this very card, Child Security, telling what it is and what it could be!", widgetImg: "assets/img/image-01.jpg", widgetTooltiptext: "Worried about your Child"},
+        {widgetSequ: 14, widgetName: "Delivery Management", widgetDesc: "A Short Description Describing this very card, Delivery Management, telling what it is and what it could be!", widgetImg: "assets/img/image-02.jpg", widgetTooltiptext: "All the Deliveries Check in here"},
+    ]
+}

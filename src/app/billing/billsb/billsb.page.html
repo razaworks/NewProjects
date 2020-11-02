@@ -1,0 +1,104 @@
+<header></header>
+
+<ion-content>
+  <section class="content">
+    <section class="block">
+      <div class="container">
+        <div class="row title">
+          <div class="ttl d-flex align-items-center">
+            <h1>{{userInfo.SocName}}</h1>
+            <div class="add-btn ml-auto">
+              <span (click)="navGenerateBill()">
+                <i class="fa fa-plus"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="osbal mb15 d-flex">
+              <p>Current Outstanding Balance: </p>
+              <p class="ml-auto">1000</p>
+            </div>
+            <div class="statement-tgl d-flex" (click)="toggleStatements()">
+              <p>Statements</p>
+              <p *ngIf="!showbillsGenerated" class="ml-auto">
+                <i class="fa fa-caret-down"></i>
+              </p>
+              <p *ngIf="showbillsGenerated" class="ml-auto">
+                <i class="fa fa-caret-up"></i>
+              </p>
+            </div>
+          </div> -->
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12 m20">
+            <div class="statements items" *ngIf="isLoaded">
+              <div class="item d-flex" *ngFor="let bg of billsGenerated">
+                <div class="wrapper">
+                  <div class="meta">
+                    <figure>
+                      <div>Month: {{bg.forMonth}}</div>
+                      <div>Year: {{bg.forYear}}</div>
+                      <div>Remarks: {{bg.remarks}}</div>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+              <div class="act" *ngIf="reqBtnText !== ''">
+                <button class="btn btn-primary" (click)="loadMore()">
+                  <span><i class="fa fa-plus"></i></span>
+                  <span>{{reqBtnText}}</span>
+                </button>
+              </div>
+            </div>
+            <div class="statements items" *ngIf="!isLoaded">
+              <div class="item d-flex sklt">
+                <div class="wrapper">
+                  <div class="meta">
+                    <figure>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+              <div class="item d-flex sklt">
+                <div class="wrapper">
+                  <div class="meta">
+                    <figure>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+              <div class="item d-flex sklt">
+                <div class="wrapper">
+                  <div class="meta">
+                    <figure>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+              <div class="item d-flex sklt">
+                <div class="wrapper">
+                  <div class="meta">
+                    <figure>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+</ion-content>

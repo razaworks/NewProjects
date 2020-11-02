@@ -1,0 +1,46 @@
+section.content {
+    height: 100%;
+    section.block {
+        padding-top: 5rem;
+    }
+}
+.other-logins {
+    text-align: center;
+}
+._links {
+    display: inline-block;
+    padding: 8px;
+    width: 35px;
+    height: 35px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 0px 5px;
+}
+.cp {
+    cursor: pointer;
+}
+.is-invalid {
+    border: 1px solid red;
+}
+.mpd {
+    margin: 10px 0;
+    padding: 8px 0;
+}
+hr {
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+.btn {
+    padding: 1rem 3rem !important;
+}
+.p10 {
+    padding: 10px;
+}
+.link {
+    color: #ff0000;
+}
+p {
+    margin: unset;
+}
+.link:hover {
+    cursor: pointer;
+}
