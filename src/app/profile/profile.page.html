@@ -1,0 +1,586 @@
+<ion-header id="ion-head-navbar" class="hero hbg"
+[ngStyle]="{'background-image': getProfileImg()}">  
+  <div class="hero-wrapper">
+    <!--============ Secondary Navigation ===============================================================-->
+    <div class="secondary-navigation">
+      <div class="container">
+        <ul class="left">
+          <li *ngIf="router.url !== '/index'" (click)="back()">
+            <a href="javascript:void(0);">
+              <i class="fa fa-chevron-left"></i>Back
+            </a>
+          </li>
+        </ul>
+        <!--end left-->
+        <ul class="right">
+          <li *ngIf="!isLogged">
+            <a href="javascript:void(0);" (click)="navLogin()">
+              <i class="fa fa-sign-in"></i>Login
+            </a>
+          </li>
+          <li *ngIf="!isLogged">
+            <a href="javascript:void(0);" (click)="navSocRegister()">
+              <i class="fa fa-pencil-square-o"></i>Register
+            </a>
+          </li>
+          <li *ngIf="isLogged">
+            <a href="javascript:void(0);">
+              {{userInfo.RoleName}}
+            </a>
+          </li>
+          <li class="pos" *ngIf="isLogged" (click)="toggleMenu()">
+            <a href="javascript:void(0);">
+              <i class="fa fa-user"></i>
+            </a>
+            <div class="ssmenu" *ngIf="showMenu">
+              <div *ngIf="isLogged" class="text-center">
+                <a href="javascript:void(0);" class="w100" (click)="navProfile()">
+                  <i class="fa fa-user"></i>My Profile
+                </a>
+              </div>
+              <div *ngIf="isLogged" class="text-center">
+                <a href="javascript:void(0);" class="w100" (click)="logout()">
+                  Logout
+                </a>
+              </div>
+              <div *ngIf="isLogged" class="text-center">
+                <a href="javascript:void(0);" class="w100" (click)="toggleMenu()">
+                  Close
+                </a>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <!--end right-->
+      </div>
+      <!--end container-->
+    </div>
+    <!--============ End Secondary Navigation ===========================================================-->
+    <!--============ Main Navigation ====================================================================-->
+    <div class="main-navigation">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light justify-content-between">
+          <a class="navbar-brand" href="javascript:void(0);" (click)="navHome()">
+            <img src="assets/img/logo.png" alt="">
+          </a>
+          <ion-buttons slot="end" class="ml-auto">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+          <div class="collapse navbar-collapse" id="navbar">
+            <!--Main navigation list-->
+            <ul class="navbar-nav">
+              <li class="nav-item active has-child">
+                <a class="nav-link" href="javascript:void(0);">Home</a>
+                <ul class="child">
+                  <li class="nav-item">
+                    <a href="javascript:void(0);" (click)="navHome()" class="nav-link">Home 1</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item has-child">
+                <a class="nav-link" href="javascript:void(0);">Listing</a>
+                <!-- 1st level -->
+                <ul class="child">
+                  <li class="nav-item has-child">
+                    <a href="javascript:void(0);" class="nav-link">Grid</a>
+                    <!-- 2nd level -->
+                    <ul class="child">
+                      <li class="nav-item">
+                        <a href="listing-grid-full-width.html" class="nav-link">Full Width</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="listing-grid-sidebar.html" class="nav-link">With Sidebar</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="listing-grid-compact-sidebar.html" class="nav-link">Compact
+                          With Sidebar</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="listing-grid-compact-full-width.html" class="nav-link">Compact
+                          Full Width</a>
+                      </li>
+                    </ul>
+                    <!-- end 2nd level -->
+                  </li>
+                  <li class="nav-item has-child">
+                    <a href="javascript:void(0);" class="nav-link">List</a>
+                    <!-- 2nd level -->
+                    <ul class="child">
+                      <li class="nav-item">
+                        <a href="listing-list-full-width.html" class="nav-link">Full Width</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="listing-list-sidebar.html" class="nav-link">With Sidebar</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="listing-list-compact-sidebar.html" class="nav-link">Compact
+                          With Sidebar</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="listing-list-compact-full-width.html" class="nav-link">Compact
+                          Full Width</a>
+                      </li>
+                    </ul>
+                    <!-- end 2nd level -->
+                  </li>
+                  <li class="nav-item has-child">
+                    <a href="javascript:void(0);" class="nav-link">Masonry</a>
+                    <!-- 2nd level -->
+                    <ul class="child">
+                      <li class="nav-item">
+                        <a href="listing-masonry-full-width.html" class="nav-link">Full
+                          Width</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="listing-masonry-sidebar.html" class="nav-link">With Sidebar</a>
+                      </li>
+                    </ul>
+                    <!-- end 2nd level -->
+                  </li>
+                  <li class="nav-item has-child">
+                    <a href="javascript:void(0);" class="nav-link">Single</a>
+                    <!-- 2nd level -->
+                    <ul class="child">
+                      <li class="nav-item">
+                        <a href="single-listing-1.html" class="nav-link">Single 1</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="single-listing-2.html" class="nav-link">Single 2</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="single-listing-3.html" class="nav-link">Single 3</a>
+                      </li>
+                    </ul>
+                    <!-- end 2nd level -->
+                  </li>
+                </ul>
+                <!-- end 1st level -->
+              </li>
+              <li class="nav-item has-child">
+                <a class="nav-link" href="javascript:void(0);">Pages</a>
+                <!-- 2nd level -->
+                <ul class="child">
+                  <li class="nav-item">
+                    <a href="sellers.html" class="nav-link">Sellers</a>
+                  </li>
+                  <li class="nav-item has-child">
+                    <a href="javascript:void(0);" class="nav-link">Seller Detail</a>
+                    <!-- 3rd level -->
+                    <ul class="child">
+                      <li class="nav-item">
+                        <a href="seller-detail-1.html" class="nav-link">Seller Detail
+                          1</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="seller-detail-2.html" class="nav-link">Seller Detail
+                          2</a>
+                      </li>
+                    </ul>
+                    <!-- end 3rd level -->
+                  </li>
+                  <li class="nav-item">
+                    <a href="blog.html" class="nav-link">Blog</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="blog-post.html" class="nav-link">Blog Post</a>
+                  </li>
+                  <li class="nav-item ad">
+                    <a href="submit.html" class="nav-link">Submit Ad</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pricing.html" class="nav-link">Pricing</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="faq.html" class="nav-link">FAQ</a>
+                  </li>
+                </ul>
+                <!-- end 2nd level -->
+              </li>
+              <li class="nav-item has-child">
+                <a class="nav-link" href="javascript:void(0);">Extras</a>
+                <!--1st level -->
+                <ul class="child">
+                  <li class="nav-item has-child">
+                    <a href="javascript:void(0);" class="nav-link">Grid Variants</a>
+                    <ul class="child">
+                      <li class="nav-item">
+                        <a href="listing-grid-4-items.html" class="nav-link">4 Items</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="listing-grid-3-items.html" class="nav-link">3 Items</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="listing-grid-2-items.html" class="nav-link">2 Items</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item has-child">
+                    <a href="javascript:void(0);" class="nav-link">User Panel</a>
+                    <ul class="child">
+                      <li class="nav-item">
+                        <a href="my-profile.html" class="nav-link">My Profile</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="my-ads.html" class="nav-link">My Ads</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="change-password.html" class="nav-link">Change
+                          Password</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="sign-in.html" class="nav-link">Sign In</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="register.html" class="nav-link">Register</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a href="elements.html" class="nav-link">Elements</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="typography.html" class="nav-link">Typography</a>
+                  </li>
+                  <li class="nav-item has-child">
+                    <a href="javascript:void(0);" class="nav-link">Nested Navigation</a>
+                    <!--2nd level -->
+                    <ul class="child">
+                      <li class="nav-item">
+                        <a href="javascript:void(0);" class="nav-link">Level 2</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="javascript:void(0);" class="nav-link">Level 2</a>
+                      </li>
+                      <li class="nav-item has-child">
+                        <a href="javascript:void(0);" class="nav-link">Level 2</a>
+                        <!--3rd level -->
+                        <ul class="child">
+                          <li class="nav-item has-child">
+                            <a href="javascript:void(0);" class="nav-link">Level 3</a>
+                            <!--4th level -->
+                            <ul class="child">
+                              <li class="nav-item">
+                                <a href="javascript:void(0);" class="nav-link">Level 4</a>
+                              </li>
+                              <li class="nav-item">
+                                <a href="javascript:void(0);" class="nav-link">Level 4</a>
+                              </li>
+                              <li class="nav-item">
+                                <a href="javascript:void(0);" class="nav-link">Level 4</a>
+                              </li>
+                            </ul>
+                            <!-- end 4th level-->
+                          </li>
+                          <li class="nav-item">
+                            <a href="javascript:void(0);" class="nav-link">Level 3</a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="javascript:void(0);" class="nav-link">Level 3</a>
+                          </li>
+                        </ul>
+                        <!--end 3rd level-->
+                      </li>
+                    </ul>
+                    <!-- end 2nd level -->
+                  </li>
+                  <li class="nav-item">
+                    <a href="image-header.html" class="nav-link">Image Header</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="messaging.html" class="nav-link">Messages</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a href="submit.html" class="btn btn-primary text-caps btn-rounded btn-framed">Submit
+                  Ad</a>
+              </li>
+            </ul>
+            <!--Main navigation list-->
+          </div>
+          <!--end navbar-collapse-->
+        </nav>
+        <!--end navbar-->
+      </div>
+      <!--end container-->
+    </div>
+    <!--============ End Main Navigation ================================================================-->
+    <div class="img-btn">
+        <button class="btn btn-primary">
+          <span><i class="fa fa-camera"></i></span>
+          <input type="file" id="imgUpload" (change)="onFileChange($event.target.files)">
+        </button>
+    </div>
+    <!--============ Page Title =========================================================================-->
+    <!-- <div class="page-title">
+      <div class="container">
+        <h1 class="opacity-70 center">
+          {{title}}
+        </h1>
+      </div>
+    </div> -->
+    <!--end container-->
+    <!--============ End Page Title =====================================================================-->
+    <div *ngIf="!hideSearch" class="background">
+      <div class="background-image original-size">
+        <img src="assets/img/hero-background-icons.jpg" alt="">
+      </div>
+      <!--end background-image-->
+    </div>
+    <!--end background-->
+  </div>
+  <!--end hero-wrapper-->
+</ion-header>
+
+<ion-content [scrollEvents]="true" (ionScroll)="scrollEv($event)">
+  <section class="content">
+    <section class="block">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <nav class="nav flex-column side-nav">
+              <a class="nav-link active icon" href="javascript:void(0);" (click)="members()">
+                <i class="fa fa-users"></i>Members
+              </a>
+            </nav>
+          </div>
+          <div class="col-md-9">
+            <section class="my-profile">
+              <form class="form" [formGroup]="editProfFormGrp">
+                <div class="row">
+                  <div class="col-md-8">
+                    <h2 class="d-flex align-items-center">
+                      Personal Information
+                      <div *ngIf="ui.PersSequ === userInfo.PersSequ" class="edits ml-auto" (click)="edit()">
+                        <i class="fa fa-pencil"></i>
+                      </div>
+                    </h2>
+                    <section>
+                      <div class="form-group">
+                        <label for="name" class="col-form-label required">Your Name <span
+                            *ngIf="userInfo.FullName === null || userInfo.FullName === ''" class="isNew"><i
+                              class="fa fa-exclamation"></i></span> </label>
+                        <input type="text" formControlName="fullName" class="form-control" id="name"
+                          placeholder="Your Name" value="Jane Doe" required="" value="{{userInfo.FullName}}">
+                      </div>
+
+                      <div class="form-group">
+                        <label for="location" class="col-form-label required">Society <span
+                            *ngIf="userInfo.SocName === null || userInfo.SocName === ''" class="isNew"><i
+                              class="fa fa-exclamation"></i></span> </label>
+                        <input type="text" class="form-control" id="input-location2" placeholder="Your Location"
+                          value="{{userInfo.SocName}}" required="" disabled>
+                      </div>
+                    </section>
+
+                    <section>
+                      <h2>Contact</h2>
+                      <div class="form-group">
+                        <label for="phone" class="col-form-label">Phone <span
+                            *ngIf="userInfo.Phone === null || userInfo.Phone === ''" class="isNew"><i
+                              class="fa fa-exclamation"></i></span> </label>
+                        <input type="text" class="form-control" formControlName="phone" id="phone"
+                          placeholder="Your Phone" value="{{userInfo.Phone}}">
+                      </div>
+
+                      <div class="form-group">
+                        <label for="email" class="col-form-label">Email <span
+                            *ngIf="userInfo.Email === null || userInfo.Email === ''" class="isNew"><i
+                              class="fa fa-exclamation"></i></span> </label>
+                        <input type="email" class="form-control" formControlName="email" id="email"
+                          placeholder="Your Email" value="{{userInfo.Email}}">
+                      </div>
+
+                      <div class="form-group">
+                        <label for="waphone" class="col-form-label">WhatsApp # <span
+                            *ngIf="userInfo.WAPhone === null || userInfo.WAPhone === ''" class="isNew"><i
+                              class="fa fa-exclamation"></i></span> </label>
+                        <input type="text" class="form-control" formControlName="waPhone" id="waphone"
+                          placeholder="Your WhatsApp #" value="{{userInfo.WAPhone}}">
+                      </div>
+
+                    </section>
+
+                    <section>
+                      <h2>Address</h2>
+                      <div class="form-group">
+                        <label for="location" class="col-form-label required">City <span
+                            *ngIf="userInfo.City === null || userInfo.City === ''" class="isNew"><i
+                              class="fa fa-exclamation"></i></span> </label>
+                        <input type="text" class="form-control" formControlName="city" id="input-location2"
+                          placeholder="Your Location" value="{{userInfo.City}}">
+                      </div>
+
+                      <div class="form-group">
+                        <label for="location" class="col-form-label required">State <span
+                            *ngIf="userInfo.State === null || userInfo.State === ''" class="isNew"><i
+                              class="fa fa-exclamation"></i></span> </label>
+                        <input type="text" class="form-control" formControlName="state" id="input-location2"
+                          placeholder="Your Location" value="{{userInfo.State}}">
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-8 col-8 col-xs-8">
+                          <div class="form-group">
+                            <label for="location" class="col-form-label required">Country <span
+                                *ngIf="userInfo.Country === null || userInfo.Country === ''" class="isNew"><i
+                                  class="fa fa-exclamation"></i></span> </label>
+                            <input type="text" class="form-control" formControlName="country" id="input-location2"
+                              placeholder="Your Location" value="{{userInfo.Country}}">
+                          </div>
+
+                        </div>
+                        <div class="col-md-4 col-4 col-xs-4">
+                          <div class="form-group">
+                            <label for="location" class="col-form-label required">Zip Code <span
+                                *ngIf="userInfo.ZipCode === null || userInfo.ZipCode === ''" class="isNew"><i
+                                  class="fa fa-exclamation"></i></span> </label>
+                            <input type="text" class="form-control" formControlName="zipCode" id="input-location2"
+                              placeholder="123456" value="{{userInfo.ZipCode}}">
+                          </div>
+
+                        </div>
+                      </div>
+                    </section>
+
+                    <section>
+                      <h2>Social</h2>
+                      <div class="form-group">
+                        <label for="google" class="col-form-label">Google <span
+                            *ngIf="userInfo.GoogleID === null || userInfo.GoogleID === ''" class="isNew"><i
+                              class="fa fa-exclamation"></i></span> </label>
+                        <input type="text" class="form-control" formControlName="googleId" id="google"
+                          placeholder="http://" value="{{userInfo.GoogleID}}">
+                      </div>
+
+                      <div class="form-group">
+                        <label for="facebook" class="col-form-label">Facebook <span
+                            *ngIf="userInfo.FacebookID === null || userInfo.FacebookID === ''" class="isNew"><i
+                              class="fa fa-exclamation"></i></span> </label>
+                        <input type="text" class="form-control" formControlName="fbId" id="facebook"
+                          placeholder="http://" value="{{userInfo.FacebookID}}">
+                      </div>
+
+                    </section>
+
+                    <section class="clearfix">
+                      <button type="submit" class="btn btn-primary float-right">Save Changes</button>
+                    </section>
+                  </div>
+                </div>
+              </form>
+            </section>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="container">
+        <div class="row profile d-flex">
+          <div class="w30">
+            <div class="image-wrapper">
+              <img [src]="rootPath + userInfo.ProfileImg" [alt]="userInfo.FullName" [title]="userInfo.FullName">
+            </div>
+          </div>
+          <div class="w70">
+            <div class="dets">
+              <div class="name w100">
+                <span>{{userInfo.FullName}} - {{userInfo.RoleName}}</span>
+              </div>
+              <div class="stay d-flex">
+                <div class="soc w100">
+                  <span>{{userInfo.SocName}}</span>
+                </div>
+                <div class="path w100 d-flex">
+                  <div class="wing">
+                    <span>{{userInfo.Wing}} Wing,</span>
+                  </div>
+                  <div class="blockno">
+                    <span>{{userInfo.BlockNo}} Block,</span>
+                  </div>
+                  <div class="flr">
+                    <span>{{userInfo.Floor}} Floor</span>
+                  </div>
+                </div>
+                <div class="flat w20">
+                  <span>{{userInfo.FlatNo}}</span>
+                </div>
+                <div class="area w20">
+                  <span>{{userInfo.FlatArea}}</span>
+                </div>
+              </div>
+              <div class="reln" *ngIf="userInfo.Relation != null">
+                <span>{{userInfo.Relation}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="edit-btn w100">
+            <button class="btn btn-primary w100">
+              <span>Edit</span>
+            </button>
+          </div>
+        </div>
+        <div class="row contents">
+          <div class="w100 d-flex tabs">
+            <div class="w50" [class.active]="showMembers" (click)="toggleView()">
+              <span>Members</span>
+            </div>
+            <div class="w50" [class.active]="!showMembers" (click)="toggleView()">
+              <span>Profile</span>
+            </div>
+          </div>
+          <div class="members w100" *ngIf="showMembers">
+            <div class="items owner">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="item w100">
+                  <div class="wrapper">
+                    <div class="image">
+                      <h3 *ngIf="userInfo.MemberType === 4">
+                        <a href="javascript:void(0);" class="tag category">{{userInfo.RoleName}}</a>
+                      </h3>
+                      <a href="javascript:void(0);" class="image-wrapper">
+                        <img src="assets/img/image-01.jpg" alt="">
+                      </a>
+                    </div>
+                    <div class="meta">
+                      <figure>
+                        <a href="javascript:void(0);">
+                          <i class="fa fa-user"></i>{{userInfo.FullName}}
+                        </a>
+                      </figure>
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="items" *ngIf="!addMbr && hasMembers">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12" *ngFor="let m of members">
+                <div class="item">
+                  <div class="wrapper">
+                    <div class="image">
+                      <a href="javascript:void(0);" class="image-wrapper">
+                        <img src="assets/img/image-01.jpg" alt="">
+                      </a>
+                    </div>
+                    <div class="meta">
+                      <figure>
+                        <a href="javascript:void(0);">
+                          <i class="fa fa-user"></i>{{m.FullName}}
+                        </a>
+                      </figure>
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </section>
+  </section>
+</ion-content>

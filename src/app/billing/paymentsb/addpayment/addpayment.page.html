@@ -1,0 +1,95 @@
+<header></header>
+
+<ion-content>
+  <section class="content">
+    <section class="block">
+      <div class="container">
+        <div class="row title">
+          <div class="ttl d-flex align-items-center">
+            <h1>Add Payment</h1>
+          </div>
+        </div>
+        <div class="row add">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <form [formGroup]="addPaymentFormGroup" validate>
+              <div class="d-flex date">
+                <div class="w50 pr5">
+                  <div class="form-group">
+                    <label for="month">Month</label>
+                    <select formControlName="month" id="month">
+                      <option value="" selected>- - - - Select Month - - - -</option>
+                      <option *ngFor="let m of months" [value]="m.monthVal">{{m.monthText}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="w50 pl5">
+                  <div class="form-group">
+                    <label for="year">Year</label>
+                    <select formControlName="year" id="year">
+                      <option value="" selected>- - - - Select Year - - - -</option>
+                      <option *ngFor="let y of years" [value]="y.yearVal">{{y.yearText}}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="amount">Amount</label>
+                <input type="text" formControlName="amount" id="amount" (keypress)="numberOnly($event)"
+                  class="form-control" placeholder="Enter Amount">
+              </div>
+              <div class="form-group">
+                <label for="type">Type</label>
+                <select formControlName="type" id="type">
+                  <option value="" selected>- - - - - Select - - - - -</option>
+                  <option value="1">Cash</option>
+                  <option value="2">Cheque</option>
+                  <option value="3">Online</option>
+                </select>
+              </div>
+              <div class="form-group" *ngIf="checkTransType()">
+                <label for="instrumentID">Instrument ID</label>
+                <input type="text" formControlName="instrumentID" id="instrumentID" class="form-control"
+                  placeholder="Enter Transaction / Instrumental ID">
+              </div>
+              <div class="form-group">
+                <label for="desc" class="d-flex">
+                  Description (optional)
+                  <p class="ml-auto" [class.text-danger]="addPaymentFormGroup.get('desc').value.length > 500"
+                    [class.text-success]="addPaymentFormGroup.get('desc').value.length >= 5 && addPaymentFormGroup.get('desc').value.length <= 500">
+                    {{addPaymentFormGroup.get('desc').value.length}} / 500</p>
+                </label>
+                <textarea formControlName="desc" id="desc" cols="30" rows="5" class="form-control"
+                  placeholder="Description (optional)"
+                  [class.is-invalid]="addPaymentFormGroup.get('desc').value.length > 20"
+                  [class.is-valid]="addPaymentFormGroup.get('desc').value.length >= 5 && addPaymentFormGroup.get('desc').value.length <= 20"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="upload">
+                  Upload
+                </label>
+                <button class="btn btn-primary btn-upload">
+                  <span class="pr5"><i class="fa fa-upload"></i></span>
+                  <span>Upload</span>
+                  <input type="file" name="upload" id="upload" (change)="onFileChange($event.target.files)"
+                    class="form-control">
+                </button>
+              </div>
+            </form>
+            <div class="act d-flex">
+              <div class="w50">
+                <button class="btn btn-primary btn-o" (click)="back()">
+                  <span>Cancel</span>
+                </button>
+              </div>
+              <div class="w50">
+                <button class="btn btn-primary" (click)="addPayment()">
+                  <span>Save</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+</ion-content>

@@ -1,0 +1,149 @@
+.statements {
+    transition: all 0.5s;
+    border-radius: 0.3rem;
+    .item {
+        .meta.ttl {
+            padding: 7px 11px;
+            font-size: 14px;
+            font-weight: 600;
+            background-color: #ff0000;
+            color: #fff;
+        }
+        .meta {
+            padding: unset;
+            .title {
+                padding: 10px 15px 10px 15px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            }
+            .contents {
+                padding: 10px 15px 10px 15px;
+                .bdpb {
+                    border-bottom: 1px dashed #ccc;
+                    padding-bottom: 4px;
+                }
+                .bdp {
+                    border-bottom: 1px dashed #ccc;
+                    padding: 4px 0;
+                }
+                .pt {
+                    padding-top: 4px;
+                }
+            }
+            p {
+                margin: unset;
+                opacity: unset;
+            }
+        }
+        .imgvwr {
+            padding: 15px 12px;
+            text-align: center;
+            .sect {
+                display: inline-flex;
+                ._sec {
+                    margin: 0 5px;
+                    text-align: center;
+                    ._ic {
+                        width: 20px;
+                        height: 20px;
+                        margin: 0 auto;
+                        background: #ecebeb;
+                        border-radius: 50%;
+                        padding: 18px;
+                        color: red;
+                        position: relative;
+                        i {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+                    }
+                    ._cap {
+                        font-size: 10px;
+                    }
+                }
+                ._sec:hover {
+                    cursor: pointer;
+                    ._ic {
+                        background: #ccc;
+                    }
+                    ._cap {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+    .item.skltn {
+        .wrapper {
+            .meta.ttl {
+                div {
+                    width: 100%;
+                    height: 10px;
+                    background-color: #fff;
+                    margin: 2px 0;
+                }
+            }
+            .meta {
+                figure {
+                    width: 100%;
+                    .title,
+                    .contents {
+                        div {
+                            width: 100%;
+                            background-color: #cccccc;
+                            height: 10px;
+                            margin: 2px 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .remark {
+        input {
+            padding: 4px 8px;
+        }
+    }
+    .act {
+        margin: 15px 0;
+        text-align: center;
+        .btn {
+            span {
+                padding-right: 5px;
+            }
+            padding: 0.5rem 2rem;
+            font-size: 15px;
+        }
+        .btn-o {
+            background-color: #fff;
+            color: #ff0000;
+        }
+        .pr5 {
+            padding-right: 5;
+        }
+        .pl5 {
+            padding-left: 5px;
+        }
+    }
+}
+
+.items:not(.selectize-input) .item .meta {
+    white-space: unset;
+    margin-top: unset;
+}
+
+.items:not(.selectize-input) .item .meta figure {
+    opacity: unset;
+    margin: unset !important;
+    font-size: 12px;
+    width: 100%;
+}
+
+.items:not(.selectize-input) .item .meta::before {
+    content: unset;
+    display: none;
+}
+.items:not(.selectize-input) .item .image {
+    height: auto;
+}

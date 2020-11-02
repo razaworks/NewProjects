@@ -1,0 +1,110 @@
+.add-btn {
+    span {
+        padding: 6px 9px;
+        background: #ccc;
+        border-radius: 50%;
+        color: #ff0000;
+        width: 25px;
+        height: 25px;
+    }
+    span:hover {
+        cursor: pointer;
+    }
+}
+
+.mb15 {
+    margin-bottom: 15px;
+}
+.m20 {
+    margin: 20px 0;
+}
+.osbal,
+.statement-tgl {
+    padding: 0.5rem 1rem;
+    border: 1px solid;
+    border-radius: 0.3rem;
+    background-color: #fff;
+    box-shadow: inset 0 0 1rem 0 rgba(0, 0, 0, 0.1);
+    border: 0.1rem solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.3rem;
+    p {
+        margin: unset;
+    }
+}
+.statement-tgl:hover {
+    cursor: pointer;
+}
+.statements {
+    transition: all 0.5s;
+    border-radius: 0.3rem;
+    .item {
+        // background-color: #fff;
+        // padding: 10px;
+        // border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        // opacity: 0.65;
+        .title {
+            padding: 15px 10px 5px 10px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .contents {
+            padding: 5px 10px;
+        }
+        p {
+            margin: unset;
+            opacity: unset;
+        }
+    }
+    .item.sklt {
+        .wrapper {
+            .meta {
+                figure {
+                    div {
+                        width: 100%;
+                        height: 10px;
+                        background-color: #ccc;
+                        margin: 2px 0;
+                    }
+                }
+            }
+        }
+    }
+    .item:first-child {
+        border-top-left-radius: 0.3rem;
+        border-top-right-radius: 0.3rem;
+    }
+    .item:last-child {
+        border-bottom: unset;
+        border-bottom-left-radius: 0.3rem;
+        border-bottom-right-radius: 0.3rem;
+    }
+    .act {
+        margin: 15px 0;
+        text-align: center;
+        .btn {
+            span {
+                padding-right: 5px;
+            }
+            padding: 0.5rem 2rem;
+            font-size: 15px;
+        }
+    }
+}
+
+.items:not(.selectize-input) .item .meta {
+    white-space: unset;
+    margin-top: unset;
+}
+
+.items:not(.selectize-input) .item .meta figure {
+    opacity: unset;
+    margin: unset !important;
+    width: 100%;
+}
+
+.items:not(.selectize-input) .item .meta::before {
+    content: unset;
+    display: none;
+}
+.items:not(.selectize-input) .item .image {
+    height: auto;
+}

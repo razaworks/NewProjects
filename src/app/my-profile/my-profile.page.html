@@ -1,0 +1,138 @@
+
+<ion-content>
+  <section class="my-profile">
+    <form class="form" [formGroup]="editProfFormGrp">
+      <div class="row">
+        <div class="col-md-8">
+          <h2>Personal Information</h2> <span class="btn btn-primary edits" (click)="edit()">Edit <i
+              class="fa fa-pencil"></i></span>
+          <section>
+            <div class="form-group">
+              <label for="name" class="col-form-label required">Your Name <span
+                  *ngIf="userInfo.FullName === null || userInfo.FullName === ''" class="isNew"><i
+                    class="fa fa-exclamation"></i></span> </label>
+              <input type="text" formControlName="fullName" class="form-control" id="name" placeholder="Your Name"
+                value="Jane Doe" required="" value="{{userInfo.FullName}}">
+            </div>
+            <!--end form-group-->
+            <div class="form-group">
+              <label for="location" class="col-form-label required">Society <span
+                  *ngIf="userInfo.SocName === null || userInfo.SocName === ''" class="isNew"><i
+                    class="fa fa-exclamation"></i></span> </label>
+              <input type="text" class="form-control" id="input-location2" placeholder="Your Location"
+                value="{{userInfo.SocName}}" required="" disabled>
+            </div>
+            <!--end form-group-->
+          </section>
+
+          <section>
+            <h2>Contact</h2>
+            <div class="form-group">
+              <label for="phone" class="col-form-label">Phone <span
+                  *ngIf="userInfo.Phone === null || userInfo.Phone === ''" class="isNew"><i
+                    class="fa fa-exclamation"></i></span> </label>
+              <input type="text" class="form-control" formControlName="phone" id="phone" placeholder="Your Phone"
+                value="{{userInfo.Phone}}">
+            </div>
+            <!--end form-group-->
+            <div class="form-group">
+              <label for="email" class="col-form-label">Email <span
+                  *ngIf="userInfo.Email === null || userInfo.Email === ''" class="isNew"><i
+                    class="fa fa-exclamation"></i></span> </label>
+              <input type="email" class="form-control" formControlName="email" id="email" placeholder="Your Email"
+                value="{{userInfo.Email}}">
+            </div>
+            <!--end form-group-->
+            <div class="form-group">
+              <label for="waphone" class="col-form-label">WhatsApp # <span
+                  *ngIf="userInfo.WAPhone === null || userInfo.WAPhone === ''" class="isNew"><i
+                    class="fa fa-exclamation"></i></span> </label>
+              <input type="text" class="form-control" formControlName="waPhone" id="waphone"
+                placeholder="Your WhatsApp #" value="{{userInfo.WAPhone}}">
+            </div>
+            <!--end form-group-->
+          </section>
+
+          <section>
+            <h2>Address</h2>
+            <div class="form-group">
+              <label for="location" class="col-form-label required">City <span
+                  *ngIf="userInfo.City === null || userInfo.City === ''" class="isNew"><i
+                    class="fa fa-exclamation"></i></span> </label>
+              <input type="text" class="form-control" formControlName="city" id="input-location2"
+                placeholder="Your Location" value="{{userInfo.City}}">
+            </div>
+            <!--end form-group-->
+            <div class="form-group">
+              <label for="location" class="col-form-label required">State <span
+                  *ngIf="userInfo.State === null || userInfo.State === ''" class="isNew"><i
+                    class="fa fa-exclamation"></i></span> </label>
+              <input type="text" class="form-control" formControlName="state" id="input-location2"
+                placeholder="Your Location" value="{{userInfo.State}}">
+            </div>
+            <!--end form-group-->
+            <div class="row">
+              <div class="col-md-8 col-8 col-xs-8">
+                <div class="form-group">
+                  <label for="location" class="col-form-label required">Country <span
+                      *ngIf="userInfo.Country === null || userInfo.Country === ''" class="isNew"><i
+                        class="fa fa-exclamation"></i></span> </label>
+                  <input type="text" class="form-control" formControlName="country" id="input-location2"
+                    placeholder="Your Location" value="{{userInfo.Country}}">
+                </div>
+                <!--end form-group-->
+              </div>
+              <div class="col-md-4 col-4 col-xs-4">
+                <div class="form-group">
+                  <label for="location" class="col-form-label required">Zip Code <span
+                      *ngIf="userInfo.ZipCode === null || userInfo.ZipCode === ''" class="isNew"><i
+                        class="fa fa-exclamation"></i></span> </label>
+                  <input type="text" class="form-control" formControlName="zipCode" id="input-location2"
+                    placeholder="123456" value="{{userInfo.ZipCode}}">
+                </div>
+                <!--end form-group-->
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2>Social</h2>
+            <div class="form-group">
+              <label for="google" class="col-form-label">Google <span
+                  *ngIf="userInfo.GoogleID === null || userInfo.GoogleID === ''" class="isNew"><i
+                    class="fa fa-exclamation"></i></span> </label>
+              <input type="text" class="form-control" formControlName="googleId" id="google" placeholder="http://"
+                value="{{userInfo.GoogleID}}">
+            </div>
+            <!--end form-group-->
+            <div class="form-group">
+              <label for="facebook" class="col-form-label">Facebook <span
+                  *ngIf="userInfo.FacebookID === null || userInfo.FacebookID === ''" class="isNew"><i
+                    class="fa fa-exclamation"></i></span> </label>
+              <input type="text" class="form-control" formControlName="fbId" id="facebook" placeholder="http://"
+                value="{{userInfo.FacebookID}}">
+            </div>
+            <!--end form-group-->
+          </section>
+
+          <section class="clearfix">
+            <button type="submit" class="btn btn-primary float-right">Save Changes</button>
+          </section>
+        </div>
+        <!--end col-md-8-->
+        <div class="col-md-4">
+          <div class="profile-image">
+            <div class="image">
+              <img src="assets/img/author-09.jpg" alt="">
+            </div>
+            <div class="single-file-input">
+              <input type="file" id="user_image" name="user_image">
+              <div class="btn btn-framed btn-primary small">Upload a picture</div>
+            </div>
+          </div>
+        </div>
+        <!--end col-md-3-->
+      </div>
+    </form>
+  </section>
+</ion-content>

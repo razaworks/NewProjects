@@ -1,0 +1,127 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>Flat Listing</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<header></header>
+
+<ion-content [scrollEvents]="true" (ionScroll)="scrollEv($event)">
+  <section class="content">
+    <section class="block">
+      <div class="container">
+        <div class="row title">
+          <div class="ttl d-flex">
+            <h1 [class.show]="!showSearch" [class.hide]="showSearch">Flat Listing</h1>
+            <div class="search ml-auto" [class.w100]="showSearch">
+              <div class="ic" [class.show]="!showSearch" [class.hide]="showSearch" (click)="toggleSearch()">
+                <span><i class="fa fa-search"></i></span>
+              </div>
+              <div class="in" [class.show]="showSearch" [class.hide]="!showSearch">
+                <input type="text" placeholder="search..." class="form-control" name="search" [(ngModel)]="filter">
+                <span class="clr" (click)="toggleSearch()">
+                  <i class="fa fa-times"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row items p15" *ngIf="flats.length > 0">
+          <div class="col-lg-3 col-md-3 col-sm-3 col-12" *ngFor="let f of flats | filter: filter | paginate: { itemsPerPage: 10, currentPage: p }; let i = index">
+            <div class="item" (click)="navMembers(f)">
+              <div class="wrapper">
+                <div class="image">
+                  <a href="javascript:void(0);" class="image-wrapper ">
+                    <img *ngIf="f.ProfileImg !== '' && f.ProfileImg !== null && f.ProfileImg !== undefined"
+                      src="{{rootPath + f.ProfileImg}}" alt="{{f.FlatNo}}" title="{{f.FlatNo}}">
+                    <img *ngIf="f.ProfileImg == '' || f.ProfileImg == null || f.ProfileImg == undefined"
+                      src="{{rootPath + '/ImageStorage/Profiles/no-profile.jpg'}}" alt="No Image Available"
+                      title="No Image Available">
+                  </a>
+                </div>
+                <!--end image-->
+                <div class="meta">
+                  <figure>
+                    <div class="d-flex">
+                      <a href="javascript:void(0);">
+                        {{f.FlatNo}}
+                      </a>
+                    </div>
+                    <p>
+                      {{f.NameAsSalesDeed}}
+                    </p>
+                  </figure>
+                </div>
+                <!--end meta-->
+              </div>
+            </div>
+            <!--end item-->
+          </div>
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+        <div class="row items p15 nl" *ngIf="flats.length == 0">
+          <div class="col-lg-3 col-md-3 col-sm-3 col-12">
+            <div class="item">
+              <div class="wrapper">
+                <div class="image">
+                  <a href="javascript:void(0);" class="image-wrapper ">
+                  </a>
+                </div>
+                <!--end image-->
+                <div class="meta">
+                  <figure>
+                    <div class="d-flex">
+                      <p class="n"></p>
+                    </div>
+                    <p class="m"></p>
+                  </figure>
+                </div>
+                <!--end meta-->
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-3 col-12">
+            <div class="item">
+              <div class="wrapper">
+                <div class="image">
+                  <a href="javascript:void(0);" class="image-wrapper ">
+                  </a>
+                </div>
+                <!--end image-->
+                <div class="meta">
+                  <figure>
+                    <div class="d-flex">
+                      <p class="n"></p>
+                    </div>
+                    <p class="m"></p>
+                  </figure>
+                </div>
+                <!--end meta-->
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-3 col-12">
+            <div class="item">
+              <div class="wrapper">
+                <div class="image">
+                  <a href="javascript:void(0);" class="image-wrapper ">
+                  </a>
+                </div>
+                <!--end image-->
+                <div class="meta">
+                  <figure>
+                    <div class="d-flex">
+                      <p class="n"></p>
+                    </div>
+                    <p class="m"></p>
+                  </figure>
+                </div>
+                <!--end meta-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+</ion-content>

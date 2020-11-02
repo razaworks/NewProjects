@@ -1,0 +1,51 @@
+<header></header>
+
+<ion-content>
+  <section class="content">
+    <section class="block">
+      <div class="container">
+        <div class="row title">
+          <div class="ttl d-flex align-items-center">
+            <h1>Add Event</h1>
+          </div>
+        </div>
+        <div class="row add">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <form [formGroup]="addEventFormGroup" validate>
+              <div class="form-group">
+                <label for="eTitle" class="d-flex">
+                  Title
+                  <p class="ml-auto" [class.text-danger]="addEventFormGroup.get('eTitle').value.length > 20"
+                    [class.text-success]="addEventFormGroup.get('eTitle').value.length >= 5 && addEventFormGroup.get('eTitle').value.length <=20">
+                    {{addEventFormGroup.get('eTitle').value.length}} / 20</p>
+                </label>
+                <input type="text" formControlName="eTitle" id="eTitle" class="form-control"
+                  [class.is-invalid]="addEventFormGroup.get('eTitle').value.length > 20"
+                  [class.is-valid]="addEventFormGroup.get('eTitle').value.length >= 5 && addEventFormGroup.get('eTitle').value.length <= 20">
+              </div>
+              <div class="form-group">
+                <label for="eDesc" class="d-flex">
+                  Description
+                  <p class="ml-auto" [class.text-danger]="addEventFormGroup.get('eDesc').value.length > 250"
+                    [class.text-success]="addEventFormGroup.get('eDesc').value.length >= 5 && addEventFormGroup.get('eDesc').value.length <= 250">
+                    {{addEventFormGroup.get('eDesc').value.length}} / 250</p>
+                </label>
+                <textarea formControlName="eDesc" id="eDesc" class="form-control"
+                  [class.is-invalid]="addEventFormGroup.get('eDesc').value.length > 250"
+                  [class.is-valid]="addEventFormGroup.get('eDesc').value.length >= 5 && addEventFormGroup.get('eDesc').value.length <= 250">
+                  </textarea>
+              </div>
+              <div class="form-group">
+                <label for="eImg">Image (optional)</label>
+                <input type="file" name="eImg" id="eImg" class="form-control" (change)="onFileChange($event.target.files)">
+              </div>
+            </form>
+            <div class="form-group text-right">
+              <button class="btn btn-primary ml-auto" (click)="addEvent()">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+</ion-content>

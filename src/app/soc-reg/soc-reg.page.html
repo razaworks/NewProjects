@@ -1,0 +1,223 @@
+<header></header>
+
+<ion-content>
+  <section class="content">
+    <section class="block">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8">
+            <div class="show-msg" *ngIf="message!=''">{{message}}</div>
+            <form class="form clearfix" [formGroup]="socRegFormGrp" validate>
+              <div *ngIf="!isSubmitted && !toProceed">
+                <div class="form-group">
+                  <label for="socName" class="col-form-label required">Society Name</label>
+                  <input formControlName="socName" type="text" class="form-control" id="socName"
+                    [class.is-invalid]="SocName.invalid && SocName.touched" placeholder="Society Name..." required>
+                  <div *ngIf="(SocName.invalid && SocName.touched) || SocName.dirty">
+                    <small *ngIf="SocName.errors?.required" class="text-danger">Society Name is required</small>
+                  </div>
+                </div>
+                <!--end form-group-->
+                <div class="form-group">
+                  <label for="noOfMembers" class="col-form-label required"># Of Members</label>
+                  <input formControlName="noOfMembers" type="text" (keypress)="numberOnly($event)" class="form-control"
+                    [class.is-invalid]="NoOfMembers.invalid && NoOfMembers.touched" id="noOfMembers"
+                    placeholder="No Of Members..." required maxlength="3">
+                  <div *ngIf="(NoOfMembers.invalid && NoOfMembers.touched) || NoOfMembers.dirty">
+                    <small *ngIf="NoOfMembers.errors?.required" class="text-danger"># of Members is required</small>
+                  </div>
+                </div>
+                <!--end form-group-->
+                <div class="">
+                  <label for="memberType" class="">Member Type</label>
+                  <!-- <input formControlName="memberType" type="text" class="form-control" id="memberType"
+                                    placeholder="Member Type..." required> -->
+                  <select (change)="mt($event)" id="memberType">
+                    <option value="">Select Member Type</option>
+                    <option *ngFor="let m of mTypes" value="{{m.MemberTypeSequ}}">{{m.MemberType}}
+                    </option>
+                  </select>
+                </div>
+                <!--end form-group-->
+                <div class="form-group">
+                  <label for="fullName" class="col-form-label required">Member Name</label>
+                  <input formControlName="fullName" type="text" class="form-control" id="fullName"
+                    [class.is-invalid]="FullName.invalid && FullName.touched" placeholder="Member Name..." required>
+                  <div *ngIf="(FullName.invalid && FullName.touched) || FullName.dirty">
+                    <small *ngIf="FullName.errors?.required" class="text-danger">Member Name is required</small>
+                  </div>
+                </div>
+                <!--end form-group-->
+                <div class="form-group">
+                  <label for="phone" class="col-form-label required">Phone Number</label>
+                  <input formControlName="phone" type="text" (keypress)="numberOnly($event)" class="form-control"
+                    [class.is-invalid]="Phone.invalid && Phone.touched" id="phone" placeholder="Phone Number..."
+                    required maxlength="10">
+                  <div *ngIf="(Phone.invalid && Phone.touched) || Phone.dirty">
+                    <small *ngIf="Phone.errors?.required" class="text-danger">Phone is required</small>
+                  </div>
+                </div>
+                <!--end form-group-->
+                <div class="form-group">
+                  <label for="email" class="col-form-label required">Email</label>
+                  <input formControlName="email" type="email" class="form-control" id="email"
+                    [class.is-invalid]="Email.invalid && Email.touched" placeholder="Your Email..." required>
+                  <div *ngIf="(Email.invalid && Email.touched) || Email.dirty">
+                    <small *ngIf="Email.errors?.required" class="text-danger">Email is required</small>
+                    <small *ngIf="Email.errors?.pattern" class="text-danger">Please provide a valid email
+                      address</small>
+                  </div>
+                </div>
+                <!--end form-group-->
+                <div class="form-group" *ngIf="isOTPGenerated">
+                  <label for="otp" class="col-form-label required">OTP</label>
+                  <input formControlName="otp" type="password" (keypress)="numberOnly($event)" class="form-control"
+                    [class.is-invalid]="Otp.invalid && Otp.touched" id="otp" placeholder="Enter OTP" required>
+                  <div *ngIf="(Otp.invalid && Otp.touched) || Otp.dirty">
+                    <small *ngIf="Otp.errors?.required" class="text-danger">OTP is required</small>
+                  </div>
+                </div>
+                <div class="resendotp" *ngIf="isOTPGenerated">
+                  <a href="javascript:void(0);" (click)="resendOTP()">Resend OTP</a>
+                </div>
+                <!--end form-group-->
+                <div class="d-flex justify-content-between align-items-baseline">
+                  <!-- <label>
+                                <input type="checkbox" name="newsletter" value="1">
+                                Receive Newsletter
+                            </label> -->
+                  <button *ngIf="!isOTPGenerated" type="submit" class="btn btn-primary"
+                    [disabled]="!socRegFormGrp.valid" (click)="generateOTP()">Next</button>
+                  <button *ngIf="isOTPGenerated" type="submit" class="btn btn-primary" [disabled]="!socRegFormGrp.valid"
+                    (click)="next()">Verify</button>
+                </div>
+              </div>
+              <div *ngIf="isSubmitted && !toProceed">
+                <div class="form-group">
+                  <label for="addressLine1" class="col-form-label required">Society Address 1</label>
+                  <input formControlName="addressLine1" type="text" class="form-control" id="addressLine1"
+                    [class.is-invalid]="addLine1.invalid && addLine1.touched" placeholder="Society Address 1..."
+                    required>
+                  <div *ngIf="(addLine1.invalid && addLine1.touched) || addLine1.dirty">
+                    <small *ngIf="addLine1.errors?.required" class="text-danger">Address 1 is required</small>
+                  </div>
+                </div>
+                <!--end form-group-->
+                <div class="form-group">
+                  <label for="addressLine2" class="col-form-label required">Society Address 2</label>
+                  <input formControlName="addressLine2" type="text" class="form-control" id="addressLine2"
+                    [class.is-invalid]="addLine2.invalid && addLine2.touched" placeholder="Society Address 2..."
+                    required>
+                  <div *ngIf="(addLine2.invalid && addLine2.touched) || addLine2.dirty">
+                    <small *ngIf="addLine2.errors?.required" class="text-danger">Address 2 is required</small>
+                  </div>
+                </div>
+                <!--end form-group-->
+                <div class="form-group">
+                  <label for="addressLine3" class="col-form-label required">Society Address 3</label>
+                  <input formControlName="addressLine3" type="text" class="form-control" id="addressLine3"
+                    [class.is-invalid]="addLine3.invalid && addLine3.touched" placeholder="Society Address 3..."
+                    required>
+                  <div *ngIf="(addLine3.invalid && addLine3.touched) || addLine3.dirty">
+                    <small *ngIf="addLine3.errors?.required" class="text-danger">Address 3 is required</small>
+                  </div>
+                </div>
+                <!--end form-group-->
+                <div class="form-group">
+                  <label for="state" class="col-form-label required">State</label>
+                  <input formControlName="state" type="text" class="form-control" id="state" placeholder="State..."
+                    [class.is-invalid]="State.invalid && State.touched" required>
+                  <div *ngIf="(State.invalid && State.touched) || State.dirty">
+                    <small *ngIf="State.errors?.required" class="text-danger">State is required</small>
+                  </div>
+                </div>
+                <!--end form-group-->
+                <div class="form-group">
+                  <label for="city" class="col-form-label required">City</label>
+                  <input formControlName="city" type="text" class="form-control" id="city" placeholder="City..."
+                    [class.is-invalid]="City.invalid && City.touched" required>
+                  <div *ngIf="(City.invalid && City.touched) || City.dirty">
+                    <small *ngIf="City.errors?.required" class="text-danger">City is required</small>
+                  </div>
+                </div>
+                <!--end form-group-->
+                <div class="form-group">
+                  <label for="zipCode" class="col-form-label required">Zip Code</label>
+                  <input formControlName="zipCode" (keypress)="numberOnly($event)" type="text" class="form-control"
+                    [class.is-invalid]="ZipCode.invalid && ZipCode.touched" id="zipCode" placeholder="Zip Code..."
+                    required>
+                  <div *ngIf="(ZipCode.invalid && ZipCode.touched) || ZipCode.dirty">
+                    <small *ngIf="ZipCode.errors?.required" class="text-danger">Zip Code is required</small>
+                  </div>
+                </div>
+                <!--end form-group-->
+                <div class="d-flex justify-content-between align-items-baseline">
+                  <!-- <label>
+                                <input type="checkbox" name="newsletter" value="1">
+                                Receive Newsletter
+                            </label> -->
+                  <button type="submit" class="btn btn-primary" [disabled]="!socRegFormGrp.valid"
+                    (click)="proceed()">Proceed</button>
+                </div>
+              </div>
+              <div *ngIf="toProceed">
+                <div class="form-group">
+                  <label for="flatNo" class="col-form-label required">Name as Per Sales Deed</label>
+                  <input type="text" formControlName="nameAsSalesDeed" id="flatNo" class="form-control" required
+                    placeholder="Name as Per Sales Deed">
+                </div>
+                <div class="form-group">
+                  <label for="blockNo" class="col-form-label required">Block Number</label>
+                  <select (change)="bn($event)" id="blockNo">
+                    <option value="">Select Block Number</option>
+                    <option *ngFor="let b of blockNos" value="{{b.blockName}}">{{b.blockName}}
+                    </option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="wing" class="col-form-label required">Wing</label>
+                  <select (change)="wg($event)" id="wing">
+                    <option value="">Select Your Wing</option>
+                    <option *ngFor="let w of wings" value="{{w.wingName}}">{{w.wingName}} Wing
+                    </option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="floor" class="col-form-label required">Floor</label>
+                  <select (change)="fr($event)" id="floor">
+                    <option value="">Select Your Floor</option>
+                    <option *ngFor="let f of floors" value="{{f.floorName}}">{{f.floorName}}
+                    </option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="flatNo" class="col-form-label required">Flat Number</label>
+                  <input type="text" formControlName="flatNo" id="flatNo" class="form-control" required
+                    placeholder="C001">
+                </div>
+                <div class="form-group">
+                  <label for="flatArea" class="col-form-label required">Flat Area</label>
+                  <input type="text" (keypress)="numberOnly($event)" formControlName="flatArea" id="flatArea"
+                    class="form-control" required placeholder="1000">
+                </div>
+                <div class="d-flex justify-content-between align-items-baseline">
+                  <button type="submit" class="btn btn-primary" [disabled]="!socRegFormGrp.valid"
+                    (click)="register()">Register</button>
+                </div>
+              </div>
+            </form>
+            <hr>
+            <p>
+              By clicking "Register" button, you agree with our <a href="#" class="link">Terms &
+                Conditions.</a>
+            </p>
+          </div>
+          <!--end col-md-6-->
+        </div>
+        <!--end row-->
+      </div>
+      <!--end container-->
+    </section>
+    <!--end block-->
+  </section>
+</ion-content>
