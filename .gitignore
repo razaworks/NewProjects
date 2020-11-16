@@ -1,0 +1,8 @@
+#Ignore file named readme.txt
+readme.txt
+
+#Ignore folder
+e2e/
+
+#Ignore all java files
+*.java
