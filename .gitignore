@@ -3,6 +3,9 @@ readme.txt
 
 #Ignore folder
 e2e/
-
+platforms/
+plugins/
+resources/
+www/
 #Ignore all java files
 *.java

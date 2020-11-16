@@ -1,0 +1,7 @@
+{
+  "name": "sage",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
